@@ -1,0 +1,36 @@
+﻿body
+{
+    background-color:dimgray;
+    color:white;
+    font-family:Verdana
+
+}
+
+.titre {
+    color:lightblue;
+    font-family:Arial
+}
+
+strong{
+    font-family:Arial;
+    color:yellow
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration:underline
+}
+
+em{
+    font-size:medium
+}
+
+.myDropcap {
+    font-size: 50px;
+    line-height: 1.5em;
+    font-weight: bold
+}
