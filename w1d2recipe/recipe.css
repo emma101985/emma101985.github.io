@@ -1,0 +1,86 @@
+﻿body {
+    width: 1024px;
+    color: #404040;
+    font-size: 11pt;
+    font-family: Georgia, Garamond
+}
+
+.headings {
+    color: #A4A400;
+    background-color: #F0F0F0;
+    font-family: 'Lucida Sans Unicode', Helvetica, Arial;
+    text-decoration:underline;
+}
+
+.main-heading{
+    text-align:center;
+    font-size:22pt;
+    font-weight:bold
+}
+
+.other-headings {
+    text-align:left;
+    font-size:18pt;
+    font-weight:normal
+
+}
+
+a {
+    color: #A4A400
+}
+
+[data-title] {
+    text-decoration:underline;
+    position: relative;
+    cursor: help;
+}
+
+    [data-title]:hover::before {
+        content: attr(data-title);
+        position: absolute;
+        bottom: -26px;
+        display: inline-block;
+        padding: 3px 6px;
+        border-radius: 2px;
+        background: #000;
+        color: #fff;
+        font-size: 12px;
+        font-family: sans-serif;
+        white-space: nowrap;
+    }
+
+    [data-title]:hover::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 8px;
+        display: inline-block;
+        color: #fff;
+        border: 8px solid transparent;
+        border-bottom: 8px solid #000;
+    }
+
+    .overstrike{
+        text-decoration:line-through
+    }
+
+.indenter-comments {
+    margin-left: 38px;
+    font-style: italic;
+    background-color: #FFFFA8;
+    margin-right:75px;
+}
+
+.pieddepage {
+    
+    text-align:right;
+    font-family: monospace
+}
+
+.validator {
+    float:right
+}
+
+ul.pie-icon {
+    list-style-image: url('pie_icon.gif');
+}
