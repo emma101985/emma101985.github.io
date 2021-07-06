@@ -1,35 +1,38 @@
-class Bank {
-    static nextNumber = 1;
+"use strict";
 
-    constructor() {
-        this._accounts = [];
+class CheckingAccount extends Account {
+    constructor(number, overdraftLimit = 500) {
+        super(number);
+        this._overdraftLimit = overdraftLimit;
     }
 
-    getAccounts() {
-        return this._accounts;
+    getOverdraftLimit() {
+        return this._overdraftLimit;
     }
 
-    addAccount() {
-        this._accounts.push(new Account(Bank.nextNumber++));
+    setOverdraftLimit(limit) {
+        this._overdraftLimit = limit;
     }
 
-    addSavingsAccount(interest) {
-        this._accounts.push(new SavingsAccount(Bank.nextNumber++, interest));
+    withdraw(amount) {
+        if (amount <= 0) {
+            throw new RangeError("Withdraw amount has to be greater than zero");
+        }
+
+        if (amount > (this._balance + this._overdraftLimit)) {
+            throw Error("Overdraft limit exceeded!");
+        }
+        this._balance -= amount;
+
+        return undefined;
     }
 
-    addCheckingAccount(overdraft) {
-        this._accounts.push(new CheckingAccount(Bank.nextNumber++, overdraft));
-    }
-
-    closeAccount(number) {
-        this._accounts = this._accounts.filter(x => x.getNumber() !== number);
-    }
-
-    accountReport() {
-        return this._accounts.reduce((a, b) => a.toString() + "\n" + b.toString(), "");
+    toString() {
+        return "Checking Account " + this._number + ": balance " + this._balance;
     }
 
     endOfMonth() {
-        return this._accounts.map(a => a.endOfMonth()).reduce((a, b) => a + "\n" + b, "");
+        return this._balance < 0 ? `Warning, low balance CheckingAccount 3: balance: -100 overdraft limit: 500`
+            : "No action for Checking account";
     }
 }
