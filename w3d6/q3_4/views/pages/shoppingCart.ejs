@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		
+		<title>Shopping Cart</title>
+		<%- include('../partials/head'); %>
+	</head>
+	<body class="container">
+		<header>
+			<%- include('../partials/header'); %>
+		</header>
+		<h1>Products from the Music Store</h1>
+		<table border=1>
+			
+			<tr>
+				<th>Name</th><th>Price</th><th>Quantity</th>
+			</tr>
+            <% shoppingProducts.forEach(function(product) { %>
+            <tr>
+				
+				<td>
+					<strong><%= product.name %></strong>
+				</td>
+				<td>
+					<%= product.price %>$
+				</td>
+				<td>
+					<%= product.quantity %>
+				</td>
+           
+            </tr>
+            <% }); %>
+			<tr>
+				<th>Total : </th><th colspan=2 align=center><%= total %>$</th>
+			</tr>
+       </table>
+
+	   
+
+		<footer>
+			<%- include('../partials/footer'); %>
+		</footer>
+	</body>
+</html>

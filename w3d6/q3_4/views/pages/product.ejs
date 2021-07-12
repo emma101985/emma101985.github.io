@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		
+		<title>List of products</title>
+		<%- include('../partials/head'); %>
+	</head>
+	<body class="container">
+		<header>
+			<%- include('../partials/header'); %>
+		</header>
+		<h1>Products from the Music Store</h1>
+		<table border=1>
+			
+			<tr>
+				<th>Id</th><th>Name</th><th>Price</th><th>Description</th>
+			</tr>
+            <% products.forEach(function(product) { %>
+            <tr>
+				<td>
+					<%= product.id %>
+				</td>
+				<td>
+					<strong><%= product.name %></strong>
+				</td>
+				<td>
+					<%= product.price %>$
+				</td>
+				<td>
+					<%= product.description %>
+				</td>
+           
+            </tr>
+            <% }); %>
+       </table>
+
+	   <h2>Add prooduct to Cart (in construction)</h2>
+	   <form action="/addToCart" method="POST">
+		<table>
+			
+			<tr>
+				
+				<th>
+					Product Id: <input type="text" id="product_id" name="product_id">
+				</th>
+			</tr>
+			
+			<tr>
+				<th colspan=2>
+					<input type="submit" value="Submit Query">
+				</th>
+		</table>
+
+		<footer>
+			<%- include('../partials/footer'); %>
+		</footer>
+	</body>
+</html>
