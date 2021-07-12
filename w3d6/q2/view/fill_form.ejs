@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset="utf-8">
+		<title>Submit Form</title>
+		<link rel="stylesheet" href="/css/">
+	</head>
+	<body>
+		<form action="/result" method="POST">
+		<table>
+			<caption>Fill the Form</caption>
+			<tr>
+				<th>
+					<label for="name">Name:</label>
+				</th>
+				<th>
+					<input type="text" id="name" name="name">
+				</th>
+			</tr>
+			<tr>
+				<th>
+					<label for="age">Age:</label>
+				</th>
+				<th>
+					<input type="text" name="age" id="age"><br/>
+				</th>
+			</tr>
+			<tr>
+				<th colspan=2>
+					<input type="submit" value="Submit Query">
+				</th>
+		</table>
+        </form>
+	</body>
+</html>
