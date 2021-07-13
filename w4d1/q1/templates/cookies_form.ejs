@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset="utf-8">
+		<title>Submit Form</title>
+		<link rel="stylesheet" href="/css/">
+	</head>
+	<body>
+		<form action="/add" method="POST">
+		<table>
+			<caption>Add Cookie</caption>
+			<tr>
+				<th>
+					<label for="cookie_key">Cookie Key:</label>
+				</th>
+				<th>
+					<input type="text" id="cookie_key" name="cookie_key">
+				</th>
+			</tr>
+			<tr>
+				<th>
+					<label for="cookie_value">Cookie Value:</label>
+				</th>
+				<th>
+					<input type="text" name="cookie_value" id="cookie_value"><br/>
+				</th>
+			</tr>
+			<tr>
+				<th colspan=2>
+					<input type="submit" value="Submit Query">
+				</th>
+		</table>
+        </form>
+	</body>
+</html>
