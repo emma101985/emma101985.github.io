@@ -1,34 +1,30 @@
-const express = require('express');
 const path = require('path');
-const morgan = require('morgan');
-const session = require('express-session');
-const productRouter = require('./routes/product');
-
+const express = require('express');
 const app = express();
-app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
+
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, "views"));
 
-app.use(morgan('dev'));
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({
-    secret: 'extraLongSaltingSecretForSession',
-    resave: false,
-    saveUninitialized: false
-}));
+app.use('/js', express.static(path.join(__dirname, 'views', 'js')));
 
-app.use(function (req, res, next) {
-    if (!req.session.cart) {
-        req.session.cart = [];
-    }
-    next();
+const list = {};
+
+app.get("/", (req, res) => {
+    res.render("form");
 });
 
-app.use('/', productRouter);
+app.post("/add", (req, res) => {
+    console.log(req.body);
+    list[req.body.fname + " " + req.body.lname] = {...req.body};
+    res.status(200);
+    res.end();
+});
 
-const port = app.get('port');
-app.listen(port, () => {
-    console.log(`Server running on Port: ${port}`);
+app.get("/list", (req, res) => {
+    res.render("list", {list: list});
+});
+
+app.listen(3000, () => {
+    console.log('server listening on port 3000');
 });
